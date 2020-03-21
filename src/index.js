@@ -7,6 +7,7 @@ import App from './App';
 // import Hello from './Hello'
 import * as serviceWorker from './serviceWorker';
 import 'tachyons'
+import './App.css'
 
 
 ReactDOM.render(

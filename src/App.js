@@ -1,7 +1,9 @@
 import React from 'react';
-import Cardlist from './Cardlist'
-import { robots } from './robots'
-import SearchBox from './SearchBox'
+import Cardlist from './Cardlist';
+import { robots } from './robots';
+import SearchBox from './SearchBox';
+import './App.css';
+
 
 //state is something that can be changed, It ussually lives in the parent component
 
@@ -27,7 +29,7 @@ class App extends React.Component {
 		console.log(filterRobots);
 	return (
 		<div className='tc'>
-		<h1> RoboFriends </h1>
+		<h1 className='f1'> RoboFriends </h1>
 		<SearchBox searchChange={this.onSearchChange}/>
 			<Cardlist robots={filterRobots}/>
 		</div>
