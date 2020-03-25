@@ -1,9 +1,9 @@
 import React from 'react';
-import Cardlist from './Cardlist';
-import { robots } from './robots';
-import SearchBox from './SearchBox';
+import Cardlist from '../components/Cardlist';
+import { robots } from '../components/robots';
+import SearchBox from '../components/SearchBox';
 import './App.css';
-import Scroll from './Scroll'
+import Scroll from '../components/Scroll'
 
 
 //state is something that can be changed, It ussually lives in the parent component
@@ -32,24 +32,26 @@ class App extends React.Component {
 	}
 
 	render (){
-			const filterRobots = this.state.robots.filter(robots => {
-		return robots.name.toLowerCase().includes(this.state.searchfield.toLowerCase());
+		const {robots, searchfield} = this.state
+
+			const filterRobots = robots.filter(robots => {
+		
+		return robots.name.toLowerCase().includes(searchfield.toLowerCase());
 		})
-		console.log(filterRobots);
-		if (robots.length === 0 ){
-			return <h1> Loading</h1>
-		} else {
-	return (
+
+
+		return !robots.length ?
+		<h1> Loading</h1> :
+		(
 		<div className='tc'>
-		<h1 className='f1'> RoboFriends </h1>
-		<SearchBox searchChange={this.onSearchChange}/>
+			<h1 className='f1'> RoboFriends </h1>
+				<SearchBox searchChange={this.onSearchChange}/>
 			<Scroll>
-			<Cardlist robots={filterRobots}/>
+				<Cardlist robots={filterRobots}/>
 			</Scroll>
 		</div>
 		);
-}
-}
+	}
 }
 
 export default App;
