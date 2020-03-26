@@ -19,6 +19,7 @@ class App extends React.Component {
 	}
 
 	componentDidMount() {
+		console.log(this.props.store)
 		fetch('https://jsonplaceholder.typicode.com/users')
 		.then(response=> {
 			return response.json();
